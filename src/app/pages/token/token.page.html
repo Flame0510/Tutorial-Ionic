@@ -4,16 +4,38 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="container" [style]="headerHeight && 'height:' + headerHeight">
+<ion-content
+  class="container"
+  [style]="headerHeight && 'height:' + headerHeight"
+>
   <form (submit)="check()">
-    <ion-input placeholder="Token" [(ngModel)]="token" name="token" [value]="token"></ion-input>
-    <ion-button expand="block" color="light" type="submit">Check</ion-button>
+    <ion-input
+      placeholder="Token"
+      [(ngModel)]="token"
+      name="token"
+      [value]="token"
+    ></ion-input>
+    
+    <div class="btn_container">
+      <ion-button
+        (click)="setToken()"
+        expand="block"
+        color="light"
+        type="submit"
+        >Token Corretto</ion-button
+      >
+      <ion-button expand="block" color="light" type="submit">Check</ion-button>
+    </div>
   </form>
 
   <ion-modal [isOpen]="errorModalVisibility">
     <ng-template>
       <div class="modal">
-        <ion-icon name="close-outline" id="close_btn" (click)="hideModal()"></ion-icon>
+        <ion-icon
+          name="close-outline"
+          id="close_btn"
+          (click)="hideModal()"
+        ></ion-icon>
         <ion-icon name="alert-circle-outline" id="alert_icon"></ion-icon>
         <h1>Token Invalido</h1>
       </div>
